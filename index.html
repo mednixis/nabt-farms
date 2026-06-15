@@ -666,13 +666,13 @@
       <span class="ch-val">Available on request</span>
     </div>
   </div>
-  <form class="cform reveal" onsubmit="handleForm(event)">
+  <form class="cform reveal" action="https://formspree.io/f/mwvjaddv" method="POST">
     <div class="form-row">
-      <input class="fi" type="text" placeholder="Your Name" required>
-      <input class="fi" type="email" placeholder="Email Address" required>
+      <input class="fi" type="text" name="name" placeholder="Your Name" required>
+      <input class="fi" type="email" name="email" placeholder="Email Address" required>
     </div>
-    <input class="fi" type="text" placeholder="Company / Organisation">
-    <select class="fi" style="cursor:pointer;appearance:none;color:rgba(163,177,138,0.35);" onchange="this.style.color='var(--cream)'" required>
+    <input class="fi" type="text" name="company" placeholder="Company / Organisation">
+    <select class="fi" name="inquiry_type" style="cursor:pointer;appearance:none;color:rgba(163,177,138,0.35);" onchange="this.style.color='var(--cream)'" required>
       <option value="" style="background:#2E3B2E;color:#A3B18A">Inquiry Type — Select</option>
       <option style="background:#2E3B2E;color:#F5F2E9">Wholesale Order</option>
       <option style="background:#2E3B2E;color:#F5F2E9">Restaurant / Hotel Supply</option>
@@ -680,8 +680,8 @@
       <option style="background:#2E3B2E;color:#F5F2E9">Product Information</option>
       <option style="background:#2E3B2E;color:#F5F2E9">General Inquiry</option>
     </select>
-    <textarea class="fi fi-area" placeholder="Tell us what you're looking for…"></textarea>
-    <button class="btn btn-primary" type="submit" style="width:100%;padding:17px" id="submit-btn">Send Inquiry</button>
+    <textarea class="fi fi-area" name="message" placeholder="Tell us what you're looking for…"></textarea>
+    <button class="btn btn-primary" type="submit" style="width:100%;padding:17px">Send Inquiry</button>
   </form>
 </section>
 
