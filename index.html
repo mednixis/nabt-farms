@@ -735,18 +735,7 @@
   const statsEl = document.querySelector('.stats-bar');
   if (statsEl) statsObs.observe(statsEl);
 
-  // Form
-  function handleForm(e) {
-    e.preventDefault();
-    const btn = document.getElementById('submit-btn');
-    btn.textContent = 'Sending…';
-    btn.style.opacity = '0.6';
-    setTimeout(() => {
-      btn.textContent = '✓ Message Sent';
-      btn.style.background = 'var(--olive)';
-      btn.style.opacity = '1';
-    }, 1200);
-  }
+  // Form submitted to Formspree directly
 </script>
 </body>
 </html>
