@@ -153,6 +153,14 @@
   /* MICROGREEN VARIETY STRIP */
   .micro-intro { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 560px; margin-bottom: 24px; }
   .micro-strip { background: var(--forest); display: grid; grid-template-columns: repeat(12,1fr); position: relative; z-index: 1; margin-top: 3px; }
+  .micro-strip[style*="repeat(2"] .micro-cell,
+  .micro-strip[style*="repeat(3"] .micro-cell { padding: 36px 24px; }
+  .micro-strip[style*="repeat(2"] .micro-icon,
+  .micro-strip[style*="repeat(3"] .micro-icon { font-size: 26px; margin-bottom: 12px; }
+  .micro-strip[style*="repeat(2"] .micro-name,
+  .micro-strip[style*="repeat(3"] .micro-name { font-size: 12px; letter-spacing: 1.5px; margin-bottom: 6px; }
+  .micro-strip[style*="repeat(2"] .micro-sub,
+  .micro-strip[style*="repeat(3"] .micro-sub { font-size: 10.5px; }
   .micro-cell { padding: 22px 12px; text-align: center; border-right: 1px solid rgba(163,177,138,0.1); transition: background 0.3s; }
   .micro-cell:last-child { border-right: none; }
   .micro-cell:hover { background: rgba(85,107,58,0.25); }
@@ -408,113 +416,35 @@
 
   <!-- LEAFY GREENS -->
   <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 02</span><span class="cat-name">Leafy Greens</span></div>
-  <div class="pgrid-2 reveal">
-
-    <div class="pcard" style="background:linear-gradient(135deg, #1e3518 0%, #2e5428 60%, #3a6830 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="30" cy="28" rx="18" ry="22"/><line x1="30" y1="50" x2="30" y2="10"/><line x1="30" y1="30" x2="16" y2="22"/><line x1="30" y1="36" x2="44" y2="28"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Hydroponic · Crisp · Year-Round</span>
-        <div class="pcard-name">Batavia Lettuce</div>
-        <p class="pcard-desc">Crinkled, buttery leaves. Crisp texture with a mild, refreshing flavour.</p>
-      </div>
-    </div>
-
-    <div class="pcard" style="background:linear-gradient(135deg, #0e2810 0%, #1a4020 60%, #2a5828 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="30" cy="25" rx="16" ry="20" transform="rotate(-10 30 25)"/><ellipse cx="30" cy="25" rx="16" ry="20" transform="rotate(10 30 25)"/><line x1="30" y1="50" x2="30" y2="15"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Leafy · Nutrient-Dense</span>
-        <div class="pcard-name">Baby Spinach</div>
-        <p class="pcard-desc">Tender dark green leaves packed with iron and vitamins.</p>
-      </div>
-    </div>
-
-    <div class="pcard" style="background:linear-gradient(135deg, #1a2e10 0%, #283c18 60%, #364e22 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><path d="M30 50 Q22 38 22 28 Q22 16 30 12 Q38 16 38 28 Q38 38 30 50Z"/><line x1="30" y1="50" x2="30" y2="12"/><line x1="30" y1="32" x2="22" y2="24"/><line x1="30" y1="38" x2="38" y2="30"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Leafy · Peppery</span>
-        <div class="pcard-name">Arugula (Rocket)</div>
-        <p class="pcard-desc">Bold peppery bite with a nutty finish. A staple in premium kitchens.</p>
-      </div>
-    </div>
-
+  <p class="micro-intro reveal">Crisp, nutrient-dense leaves grown hydroponically and harvested fresh.</p>
+  <div class="micro-strip" style="grid-template-columns:repeat(3,1fr)">
+    <div class="micro-cell"><span class="micro-icon">🥬</span><span class="micro-name">Batavia Lettuce</span><span class="micro-sub">Crisp · Year-Round</span></div>
+    <div class="micro-cell"><span class="micro-icon">🌿</span><span class="micro-name">Baby Spinach</span><span class="micro-sub">Nutrient-Dense</span></div>
+    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Arugula</span><span class="micro-sub">Peppery · Crisp</span></div>
   </div>
 
   <!-- CHERRY TOMATOES -->
   <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 03</span><span class="cat-name">Cherry Tomatoes</span></div>
-  <div class="pgrid-2 reveal">
-
-    <div class="pcard" style="background:linear-gradient(135deg, #2a0a08 0%, #5a1410 60%, #7a2018 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><circle cx="22" cy="34" r="10"/><circle cx="38" cy="34" r="10"/><circle cx="30" cy="22" r="10"/><line x1="30" y1="12" x2="30" y2="8"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Hydroponic · Vine-Ripened · Year-Round</span>
-        <div class="pcard-name">Red Cherry Tomatoes</div>
-        <p class="pcard-desc">Classic deep red. Intensely sweet with bright acidity. Harvested to order.</p>
-        <div class="variety-chips"><span class="chip">Red</span><span class="chip">Vine-Ripened</span><span class="chip">Year-Round</span></div>
-      </div>
-    </div>
-
-    <div class="pcard" style="background:linear-gradient(135deg, #2a1408 0%, #5a2e10 60%, #7a4018 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><circle cx="20" cy="36" r="9"/><circle cx="40" cy="36" r="9"/><circle cx="30" cy="20" r="9"/><line x1="30" y1="11" x2="32" y2="7"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Hydroponic · Sweeter Variety</span>
-        <div class="pcard-name">Orange Cherry Tomatoes</div>
-        <p class="pcard-desc">Milder, sweeter and lower in acidity. Striking colour for retail display and plating.</p>
-        <div class="variety-chips"><span class="chip">Orange</span><span class="chip">Low Acidity</span><span class="chip">Premium</span></div>
-      </div>
-    </div>
-
+  <p class="micro-intro reveal">Vine-ripened, hydroponic-grown, harvested to order for peak sweetness.</p>
+  <div class="micro-strip" style="grid-template-columns:repeat(2,1fr)">
+    <div class="micro-cell"><span class="micro-icon">🍅</span><span class="micro-name">Red Cherry Tomatoes</span><span class="micro-sub">Vine-Ripened · Year-Round</span></div>
+    <div class="micro-cell"><span class="micro-icon">🟠</span><span class="micro-name">Orange Cherry Tomatoes</span><span class="micro-sub">Sweeter · Low Acidity</span></div>
   </div>
 
   <!-- CUCUMBERS -->
   <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 04</span><span class="cat-name">Cucumbers</span></div>
-  <div class="pgrid-2 reveal">
-
-    <div class="pcard" style="background:linear-gradient(135deg, #0e2010 0%, #1a3820 60%, #265030 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="30" cy="30" rx="8" ry="18"/><ellipse cx="20" cy="30" rx="8" ry="18"/><ellipse cx="40" cy="30" rx="8" ry="18"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Hydroponic · Seedless · Snack Size</span>
-        <div class="pcard-name">Mini Cucumbers</div>
-        <p class="pcard-desc">Thin-skinned, seedless and crisp. No bitterness. Ready to eat.</p>
-        <div class="variety-chips"><span class="chip">Seedless</span><span class="chip">Snack Size</span><span class="chip">No Bitterness</span></div>
-      </div>
-    </div>
-
-    <div class="pcard" style="background:linear-gradient(135deg, #081810 0%, #142a18 60%, #1e3c24 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="30" cy="30" rx="6" ry="22"/><line x1="14" y1="30" x2="46" y2="30"/><line x1="16" y1="22" x2="44" y2="22"/><line x1="16" y1="38" x2="44" y2="38"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Hydroponic · Full Size · Hotel Grade</span>
-        <div class="pcard-name">English Cucumbers</div>
-        <p class="pcard-desc">Long, smooth and tender. Mild, clean flavour preferred by hotels and food service.</p>
-        <div class="variety-chips"><span class="chip">Full Size</span><span class="chip">Hotel Grade</span><span class="chip">Year-Round</span></div>
-      </div>
-    </div>
-
+  <p class="micro-intro reveal">Seedless and full-size, grown for clean flavour without bitterness.</p>
+  <div class="micro-strip" style="grid-template-columns:repeat(2,1fr)">
+    <div class="micro-cell"><span class="micro-icon">🥒</span><span class="micro-name">Mini Cucumbers</span><span class="micro-sub">Seedless · Snack Size</span></div>
+    <div class="micro-cell"><span class="micro-icon">🥒</span><span class="micro-name">English Cucumbers</span><span class="micro-sub">Full Size · Hotel Grade</span></div>
   </div>
 
   <!-- MUSHROOMS -->
   <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 05</span><span class="cat-name">Mushrooms</span></div>
-  <div class="pgrid-2 reveal">
-
-    <div class="pcard" style="background:linear-gradient(135deg, #1e1c14 0%, #2e2a1c 60%, #3e3828 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="25" cy="26" rx="14" ry="8" transform="rotate(-30 25 26)"/><ellipse cx="35" cy="26" rx="14" ry="8" transform="rotate(30 35 26)"/><ellipse cx="30" cy="20" rx="14" ry="8"/><line x1="30" y1="38" x2="30" y2="48"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Fresh · Premium · Cultivated</span>
-        <div class="pcard-name">Oyster Mushrooms</div>
-        <p class="pcard-desc">Delicate, velvety texture with a deep savoury umami flavour. Consistently cultivated year-round.</p>
-        <div class="variety-chips"><span class="chip">White</span><span class="chip">Grey</span><span class="chip">Pink</span></div>
-      </div>
-    </div>
-
-    <div class="pcard" style="background:linear-gradient(135deg, #181410 0%, #282018 60%, #342c20 100%)">
-      <div class="card-icon"><svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1"><ellipse cx="30" cy="26" rx="16" ry="12"/><ellipse cx="30" cy="28" rx="16" ry="6"/><line x1="30" y1="34" x2="30" y2="48"/></svg></div>
-      <div class="pcard-overlay">
-        <span class="pcard-tag">Fresh · Classic · Versatile</span>
-        <div class="pcard-name">Button Mushrooms</div>
-        <p class="pcard-desc">Mild, earthy flavour with a firm texture. Available in bulk for food service.</p>
-        <div class="variety-chips"><span class="chip">White</span><span class="chip">Brown Cremini</span><span class="chip">Bulk Available</span></div>
-      </div>
-    </div>
-
+  <p class="micro-intro reveal">Cultivated in controlled environments for consistent quality.</p>
+  <div class="micro-strip" style="grid-template-columns:repeat(2,1fr)">
+    <div class="micro-cell"><span class="micro-icon">🍄</span><span class="micro-name">Oyster Mushrooms</span><span class="micro-sub">Fresh · Premium</span></div>
+    <div class="micro-cell"><span class="micro-icon">🍄</span><span class="micro-name">Button Mushrooms</span><span class="micro-sub">Classic · Versatile</span></div>
   </div>
 
 </section>
