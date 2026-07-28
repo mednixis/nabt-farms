@@ -1,671 +1,272 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nabt Farms — مزارع نبت</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nabt Farms &mdash; Hydroponic Microgreens &amp; Batavia Lettuce | Egypt</title>
+<meta name="description" content="Nabt Farms grows hydroponic microgreens and Batavia lettuce outside Cairo. Zero pesticides, year-round supply, cut to order and delivered the same day to restaurants, hotels and retailers across Egypt.">
+<link rel="canonical" href="https://www.nabtfarms.com/">
+<meta name="theme-color" content="#071410">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23071410'/%3E%3Cpath d='M16 28V16' stroke='%237FE38A' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M16 16C8.5 13 7.5 5.5 16 2.5c8.5 3 7.5 10.5 0 13.5Z' fill='%237FE38A'/%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nabt Farms">
+<meta property="og:title" content="Nabt Farms &mdash; Hydroponic Microgreens &amp; Batavia Lettuce">
+<meta property="og:description" content="Two crops, grown properly. Hydroponic microgreens and Batavia lettuce, cut to order and delivered the same day across Egypt.">
+<meta property="og:url" content="https://www.nabtfarms.com/">
+<meta property="og:locale" content="en_EG">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --forest:  #2E3B2E;
-    --olive:   #556B3A;
-    --sage:    #A3B18A;
-    --sand:    #D8C9A3;
-    --cream:   #F5F2E9;
-    --white:   #FDFCF8;
-    --text:    #1C2418;
-    --muted:   #6B7A5E;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Reem+Kufi:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 22px 56px;
-    display: flex; align-items: center; justify-content: space-between;
-    transition: background 0.4s, padding 0.4s;
-  }
-  nav.scrolled {
-    background: rgba(28,36,24,0.97);
-    backdrop-filter: blur(14px);
-    padding: 14px 56px;
-    box-shadow: 0 2px 40px rgba(0,0,0,0.35);
-  }
-  .nav-logo { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; gap: 2px; }
-  .nav-logo .ar { font-size: 24px; color: var(--sand); direction: rtl; font-family: serif; letter-spacing: 1px; }
-  .nav-logo .en { font-size: 9px; color: var(--sage); letter-spacing: 5px; text-transform: uppercase; font-weight: 300; }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { color: rgba(245,242,233,0.75); text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 300; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--sand); }
-  .nav-cta { background: transparent; border: 1px solid rgba(216,201,163,0.6); color: var(--sand); padding: 10px 24px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; font-family: 'Inter', sans-serif; }
-  .nav-cta:hover { background: var(--sand); color: var(--forest); }
-
-  /* HERO */
-  .hero {
-    height: 100vh; position: relative; overflow: hidden;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--forest);
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background: linear-gradient(160deg, #1a2418 0%, #2E3B2E 40%, #3a5228 100%);
-  }
-  .hero-vignette {
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(85,107,58,0.3) 0%, transparent 60%);
-  }
-  /* Animated grain texture */
-  .hero-grain {
-    position: absolute; inset: 0; opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-  }
-  .hero-content { text-align: center; z-index: 2; padding: 0 24px; }
-  .hero-eyebrow { font-size: 10px; letter-spacing: 7px; color: var(--sage); text-transform: uppercase; font-weight: 300; margin-bottom: 36px; opacity: 0; animation: fadeUp 1s 0.3s forwards; display: block; }
-  .hero-arabic { font-size: clamp(100px, 18vw, 180px); color: var(--sand); line-height: 0.9; direction: rtl; margin-bottom: 12px; opacity: 0; animation: fadeUp 1.2s 0.5s forwards; font-family: serif; font-weight: 400; }
-  .hero-tagline { font-family: 'Cormorant Garamond', serif; font-size: clamp(16px, 2.5vw, 24px); color: rgba(245,242,233,0.7); font-weight: 300; font-style: italic; margin-bottom: 52px; opacity: 0; animation: fadeUp 1.2s 0.8s forwards; }
-  .hero-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--sage), transparent); margin: 0 auto 40px; opacity: 0; animation: fadeUp 1s 1s forwards; }
-  .hero-ctas { display: flex; gap: 16px; justify-content: center; opacity: 0; animation: fadeUp 1s 1.2s forwards; }
-  .btn { display: inline-block; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; padding: 15px 36px; cursor: pointer; transition: all 0.3s; border: none; }
-  .btn-primary { background: var(--olive); color: var(--cream); }
-  .btn-primary:hover { background: #3d5228; transform: translateY(-2px); }
-  .btn-ghost { background: transparent; color: var(--sand); border: 1px solid rgba(216,201,163,0.4); }
-  .btn-ghost:hover { border-color: var(--sand); transform: translateY(-2px); }
-  .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 10px; opacity: 0; animation: fadeUp 1s 1.8s forwards; }
-  .hero-scroll span { font-size: 9px; letter-spacing: 4px; color: var(--sage); text-transform: uppercase; }
-  .scroll-bar { width: 1px; height: 44px; background: linear-gradient(to bottom, var(--sage), transparent); animation: pulse 2.5s 2s infinite; }
-
-  /* TICKER */
-  .ticker { background: var(--olive); padding: 14px 0; overflow: hidden; white-space: nowrap; }
-  .ticker-inner { display: inline-block; animation: ticker 22s linear infinite; }
-  .ticker-inner span { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--cream); margin: 0 48px; font-weight: 300; opacity: 0.85; }
-  .ticker-dot { color: var(--sand); }
-
-  /* STATS */
-  .stats-bar { background: var(--forest); display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(163,177,138,0.1); }
-  .stat { padding: 44px 24px; text-align: center; border-right: 1px solid rgba(163,177,138,0.12); }
-  .stat:last-child { border-right: none; }
-  .stat-n { font-family: 'Cormorant Garamond', serif; font-size: 48px; color: var(--sand); font-weight: 300; line-height: 1; display: block; }
-  .stat-l { font-size: 9px; letter-spacing: 3px; color: var(--sage); text-transform: uppercase; margin-top: 8px; display: block; font-weight: 300; }
-
-  /* SHARED */
-  section { padding: 112px 56px; }
-  .eyebrow { font-size: 10px; letter-spacing: 5px; color: var(--olive); text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 16px; }
-  .h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4.5vw, 60px); font-weight: 300; line-height: 1.1; color: var(--forest); margin-bottom: 20px; }
-  .h2 em { font-style: italic; color: var(--olive); }
-  .body-txt { font-size: 15px; line-height: 1.9; color: var(--muted); font-weight: 300; max-width: 500px; }
-
-  /* PRODUCTS */
-  .products { background: var(--white); padding-bottom: 0; }
-  .products-header { margin-bottom: 56px; display: flex; justify-content: space-between; align-items: flex-end; }
-
-  /* PRODUCT GRID */
-  .pgrid  { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 340px 340px; gap: 3px; align-items: stretch; height: 683px; overflow: hidden; }
-  .pgrid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
-  .pgrid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 3px; }
-  .pgrid-1 { display: grid; grid-template-columns: 1fr; gap: 3px; }
-
-  .pcard {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    background-color: #2E3B2E;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    height: 340px;
-  }
-  .pcard-tall {
-    grid-row: span 2;
-    height: 683px; /* 340 + 3 gap + 340 */
-  }
-  .pcard::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(10,18,10,0.96) 0%, rgba(10,18,10,0.25) 55%, transparent 100%);
-    z-index: 1;
-  }
-  .pcard:hover { background-size: 108% !important; }
-  .pcard-tall { grid-row: span 2; height: calc(680px + 3px); }
-  .pgrid-2 .pcard { height: 420px; }
-  .pgrid-3 .pcard { height: 400px; }
-  .pgrid-1 .pcard { height: 420px; }
-
-  .pcard-overlay {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 28px;
-    z-index: 2;
-    overflow: hidden;
-  }
-  .pcard-tag { font-size: 9px; letter-spacing: 3px; color: var(--sage); text-transform: uppercase; margin-bottom: 8px; display: block; }
-  .pcard-name { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--cream); font-weight: 300; margin-bottom: 8px; line-height: 1.2; }
-  .pcard-tall .pcard-name { font-size: 38px; }
-  .pcard-desc { font-size: 12px; color: rgba(245,242,233,0.65); line-height: 1.65; font-weight: 300; max-width: 320px; opacity: 0; transform: translateY(8px); transition: all 0.4s; }
-  .pcard:hover .pcard-desc { opacity: 1; transform: translateY(0); }
-  .variety-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; opacity: 0; transform: translateY(8px); transition: all 0.4s 0.05s; }
-  .pcard:hover .variety-chips { opacity: 1; transform: translateY(0); }
-  .chip { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(163,177,138,0.5); color: var(--sage); padding: 4px 10px; }
-
-  /* MICROGREEN VARIETY STRIP */
-  .micro-intro { font-size: 14px; color: var(--muted); font-weight: 300; line-height: 1.7; max-width: 560px; margin-bottom: 24px; }
-  .micro-strip { background: var(--forest); display: grid; grid-template-columns: repeat(12,1fr); position: relative; z-index: 1; margin-top: 3px; }
-  .micro-strip[style*="repeat(2"] .micro-cell,
-  .micro-strip[style*="repeat(3"] .micro-cell { padding: 36px 24px; }
-  .micro-strip[style*="repeat(2"] .micro-icon,
-  .micro-strip[style*="repeat(3"] .micro-icon { font-size: 26px; margin-bottom: 12px; }
-  .micro-strip[style*="repeat(2"] .micro-name,
-  .micro-strip[style*="repeat(3"] .micro-name { font-size: 12px; letter-spacing: 1.5px; margin-bottom: 6px; }
-  .micro-strip[style*="repeat(2"] .micro-sub,
-  .micro-strip[style*="repeat(3"] .micro-sub { font-size: 10.5px; }
-  .micro-cell { padding: 22px 12px; text-align: center; border-right: 1px solid rgba(163,177,138,0.1); transition: background 0.3s; }
-  .micro-cell:last-child { border-right: none; }
-  .micro-cell:hover { background: rgba(85,107,58,0.25); }
-  .micro-icon { font-size: 18px; margin-bottom: 8px; display: block; }
-  .micro-name { font-size: 9px; letter-spacing: 2px; color: var(--sand); text-transform: uppercase; font-weight: 400; display: block; margin-bottom: 3px; }
-  .micro-sub { font-size: 9px; color: rgba(163,177,138,0.55); font-weight: 300; }
-
-  /* CATEGORY LABELS */
-  .cat-label { display: flex; align-items: baseline; gap: 20px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(163,177,138,0.2); }
-  .cat-tag { font-size: 9px; letter-spacing: 4px; color: var(--sage); text-transform: uppercase; font-weight: 300; }
-  .cat-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--forest); font-weight: 300; }
-
-  @media (max-width: 960px) {
-    .pgrid { grid-template-columns: 1fr 1fr; grid-template-rows: 280px 280px; }
-    .pcard-tall { grid-row: span 1; height: 280px; }
-    .pgrid-3 { grid-template-columns: 1fr 1fr; }
-    .pgrid-2 { grid-template-columns: 1fr; }
-    .pgrid-2 .pcard { height: 300px; }
-    .pgrid-3 .pcard { height: 300px; }
-    .micro-strip { grid-template-columns: repeat(4,1fr); }
-  }
-
-  /* ABOUT */
-  .about { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .about-img-wrap { position: relative; }
-  .about-main-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; filter: brightness(0.88) saturate(0.85); display: block; }
-  .about-badge { position: absolute; bottom: -28px; right: -28px; width: 170px; height: 170px; background: var(--olive); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
-  .about-badge-yr { font-family: 'Cormorant Garamond', serif; font-size: 52px; color: var(--cream); font-weight: 300; line-height: 1; }
-  .about-badge-lbl { font-size: 9px; letter-spacing: 3px; color: rgba(245,242,233,0.6); text-transform: uppercase; }
-  .values { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 44px; }
-  .val { display: flex; gap: 14px; }
-  .val-ic { width: 38px; height: 38px; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--olive); }
-  .val-title { font-size: 13px; font-weight: 500; color: var(--forest); margin-bottom: 4px; }
-  .val-body { font-size: 12px; color: var(--muted); line-height: 1.6; font-weight: 300; }
-
-  /* SUSTAINABILITY */
-  .sust { background: var(--forest); }
-  .sust .h2 { color: var(--cream); }
-  .sust .h2 em { color: var(--sage); }
-  .sust .eyebrow { color: var(--sage); }
-  .pillars { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 72px; border: 1px solid rgba(163,177,138,0.12); }
-  .pillar { padding: 48px 28px; background: var(--forest); text-align: center; transition: background 0.3s; border-right: 1px solid rgba(163,177,138,0.12); }
-  .pillar:hover { background: rgba(85,107,58,0.25); }
-  .pillar-ic { width: 48px; height: 48px; margin: 0 auto 18px; color: var(--sage); display: flex; align-items: center; justify-content: center; }
-  .pillar-title { font-size: 10px; letter-spacing: 3px; color: var(--sand); text-transform: uppercase; margin-bottom: 12px; }
-  .pillar-body { font-size: 12px; color: rgba(163,177,138,0.65); line-height: 1.7; font-weight: 300; }
-
-  /* PROCESS */
-  .process { background: var(--white); }
-  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 72px; position: relative; }
-  .steps::before { content: ''; position: absolute; top: 23px; left: 11%; right: 11%; height: 1px; background: linear-gradient(to right, transparent, var(--sage), transparent); }
-  .step { text-align: center; }
-  .step-n { width: 46px; height: 46px; background: var(--cream); border: 1px solid var(--sand); border-radius: 50%; margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--olive); position: relative; z-index: 1; }
-  .step-title { font-size: 13px; font-weight: 500; color: var(--forest); letter-spacing: 0.5px; margin-bottom: 10px; }
-  .step-body { font-size: 12px; color: var(--muted); line-height: 1.75; font-weight: 300; }
-
-  /* EXPORT */
-  .export { background: var(--sand); }
-  .export-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .certs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .cert { border: 1px solid rgba(46,59,46,0.3); padding: 7px 18px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--forest); font-weight: 400; }
-  .export-map { background: var(--forest); aspect-ratio: 4/3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .map-lbl { position: absolute; bottom: 24px; left: 24px; font-size: 9px; letter-spacing: 3px; color: var(--sage); text-transform: uppercase; }
-
-  /* CONTACT */
-  .contact { background: var(--forest); text-align: center; }
-  .contact .h2 { color: var(--cream); max-width: 560px; margin: 0 auto 12px; }
-  .contact .eyebrow { text-align: center; color: var(--sage); }
-  .contact-sub { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--sage); font-style: italic; font-weight: 300; margin-bottom: 56px; }
-  .channels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 820px; margin: 0 auto 64px; }
-  .channel { background: rgba(163,177,138,0.07); border: 1px solid rgba(163,177,138,0.13); padding: 36px 28px; transition: background 0.3s; }
-  .channel:hover { background: rgba(163,177,138,0.14); }
-  .ch-icon { font-size: 22px; margin-bottom: 14px; display: block; }
-  .ch-lbl { font-size: 9px; letter-spacing: 3px; color: var(--sage); text-transform: uppercase; margin-bottom: 8px; display: block; }
-  .ch-val { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--cream); font-weight: 300; }
-  .cform { max-width: 540px; margin: 0 auto; display: grid; gap: 14px; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .fi { background: rgba(245,242,233,0.05); border: 1px solid rgba(163,177,138,0.22); color: var(--cream); padding: 15px 18px; font-size: 13px; font-family: 'Inter', sans-serif; font-weight: 300; width: 100%; outline: none; transition: border-color 0.3s; }
-  .fi:focus { border-color: var(--sage); }
-  .fi::placeholder { color: rgba(163,177,138,0.35); }
-  .fi-area { resize: none; height: 110px; }
-
-  /* FOOTER */
-  footer { background: #141c12; padding: 44px 56px; display: flex; align-items: center; justify-content: space-between; }
-  .foot-logo { display: flex; flex-direction: column; }
-  .foot-ar { font-size: 30px; color: var(--sand); direction: rtl; font-family: serif; }
-  .foot-en { font-size: 9px; letter-spacing: 4px; color: var(--muted); text-transform: uppercase; margin-top: 2px; }
-  .foot-links { display: flex; gap: 28px; list-style: none; }
-  .foot-links a { color: var(--muted); text-decoration: none; font-size: 11px; letter-spacing: 1px; transition: color 0.2s; }
-  .foot-links a:hover { color: var(--sage); }
-  .foot-domain { font-size: 12px; color: rgba(163,177,138,0.4); font-weight: 300; }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulse { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
-  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-  .reveal-d1 { transition-delay: 0.1s; }
-  .reveal-d2 { transition-delay: 0.2s; }
-  .reveal-d3 { transition-delay: 0.3s; }
-
-  /* RESPONSIVE */
-  @media (max-width: 960px) {
-    nav { padding: 18px 24px; } nav.scrolled { padding: 12px 24px; }
-    .nav-links { display: none; }
-    section { padding: 72px 24px; }
-    .stats-bar { grid-template-columns: repeat(2,1fr); }
-    .pgrid { grid-template-columns: 1fr 1fr; }
-    .pcard-tall { grid-row: span 1; } .pcard-tall .pcard-img { min-height: 280px; }
-    .micro-strip { grid-template-columns: repeat(3,1fr); }
-    .about { grid-template-columns: 1fr; gap: 48px; }
-    .about-badge { right: 0; bottom: 0; }
-    .pillars { grid-template-columns: repeat(2,1fr); } .pillar:nth-child(2n) { border-right: none; } .pillar { border-bottom: 1px solid rgba(163,177,138,0.12); }
-    .steps { grid-template-columns: repeat(2,1fr); } .steps::before { display: none; }
-    .export-inner { grid-template-columns: 1fr; }
-    .channels { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 24px; text-align: center; padding: 36px 24px; }
-    .products-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-  }
-
-  /* WHY STRIP */
-  .why-strip {
-    background: var(--forest);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid rgba(163,177,138,0.12);
-    border-bottom: 1px solid rgba(163,177,138,0.12);
-  }
-  .why-item {
-    padding: 52px 36px;
-    border-right: 1px solid rgba(163,177,138,0.12);
-    transition: background 0.3s;
-  }
-  .why-item:last-child { border-right: none; }
-  .why-item:hover { background: rgba(85,107,58,0.2); }
-  .why-icon { color: var(--sage); margin-bottom: 20px; }
-  .why-title { font-size: 13px; letter-spacing: 1px; color: var(--sand); font-weight: 500; margin-bottom: 10px; }
-  .why-body { font-size: 13px; color: rgba(163,177,138,0.65); line-height: 1.7; font-weight: 300; }
-  @media (max-width: 960px) {
-    .why-strip { grid-template-columns: repeat(2,1fr); }
-    .why-item:nth-child(2) { border-right: none; }
-    .why-item { border-bottom: 1px solid rgba(163,177,138,0.12); }
-  }
-
-  .card-icon {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -60%);
-    width: 80px; height: 80px;
-    color: rgba(163,177,138,0.25);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .card-icon svg { width: 100%; height: 100%; }
-</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Nabt Farms",
+  "alternateName":"\u0645\u0632\u0627\u0631\u0639 \u0646\u0628\u062A",
+  "url":"https://www.nabtfarms.com/",
+  "email":"nabtfarms@gmail.com",
+  "description":"Hydroponic grower of microgreens and Batavia lettuce supplying restaurants, hotels and retailers in Egypt.",
+  "address":{"@type":"PostalAddress","addressCountry":"EG","addressRegion":"Greater Cairo"},
+  "areaServed":"Egypt"
+}
+</script>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <div class="nav-logo">
-    <span class="ar">نبت</span>
-    <span class="en">Nabt Farms</span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#sustainability">Sustainability</a></li>
-  </ul>
-  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in Touch</button>
-</nav>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="scrim" aria-hidden="true"></div>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-vignette"></div>
-  <div class="hero-grain"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">Premium Egyptian Agriculture · مزارع نبت</span>
-    <div class="hero-arabic">نبت</div>
-    <p class="hero-tagline">Where roots run deep and every harvest speaks for itself.</p>
-    <div class="hero-line"></div>
-    <div class="hero-ctas">
-      <a href="#products" class="btn btn-primary">Explore Products</a>
-      <a href="#about" class="btn btn-ghost">Our Story</a>
+<!-- leaf glyph set ---------------------------------------------------- -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="lf-oval" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44V27"/>
+      <path d="M24 27C13 24 11 13 24 5c13 8 11 19 0 22Z"/>
+      <path d="M24 27V8"/>
+    </g>
+    <g id="lf-lobed" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44V28"/>
+      <path d="M24 28c-5-1-7-5-5-7-5-1-6-6-1-7-3-4 1-8 6-6 5-2 9 2 6 6 5 1 4 6-1 7 2 2 0 6-5 7Z"/>
+      <path d="M24 28V9"/>
+    </g>
+    <g id="lf-tendril" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44V22"/>
+      <path d="M24 22c-6-1-10-6-7-11 5 1 8 6 7 11Z"/>
+      <path d="M24 22c6-1 10-6 7-11-5 1-8 6-7 11Z"/>
+      <path d="M24 20c0-6 3-11 7-13 3-1 4 2 2 3"/>
+    </g>
+    <g id="lf-spade" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44V26"/>
+      <path d="M24 26c-7-4-8-14 0-22 8 8 7 18 0 22Z"/>
+      <path d="M24 26V7"/>
+    </g>
+    <g id="lf-round" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44c0-8-2-12-2-15"/>
+      <path d="M22 29C12 27 9 17 18 11c9-5 18 1 16 10-1 6-6 9-12 8Z"/>
+      <path d="M22 29c3-6 7-11 11-14"/>
+    </g>
+    <g id="lf-lacy" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44V21"/>
+      <path d="M24 22c-5 0-9-3-9-7 4-1 8 2 9 6"/>
+      <path d="M24 22c5 0 9-3 9-7-4-1-8 2-9 6"/>
+      <path d="M24 19c-3-4-3-9 0-13 3 4 3 9 0 13Z"/>
+    </g>
+    <g id="lf-heart" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M24 44V28"/>
+      <path d="M24 28C13 22 11 11 18 8c3-1.5 5 0 6 2 1-2 3-3.5 6-2 7 3 5 14-6 20Z"/>
+      <path d="M24 28V11"/>
+    </g>
+    <g id="lf-grass" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 44c-2-12-1-26 3-37"/>
+      <path d="M24 44c0-14 0-28 1-39"/>
+      <path d="M30 44c2-12 1-24-2-35"/>
+    </g>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Nabt Farms, home">
+      <span class="brand-ar" lang="ar">نبت</span>
+      <span class="brand-en">Nabt Farms</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#microgreens">Microgreens</a></li>
+      <li><a href="#lettuce">Lettuce</a></li>
+      <li><a href="#how">How we grow</a></li>
+      <li><a href="#standards">Standards</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Request a quote</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="shell" id="top">
+
+  <!-- hero ---------------------------------------------------------- -->
+  <section class="hero wrap">
+    <div class="hero-in">
+      <p class="eyebrow">Hydroponic farm &middot; Greater Cairo</p>
+      <h1>We grow two things. <em>Properly.</em></h1>
+      <p class="lead">Microgreens and Batavia lettuce, grown hydroponically without pesticides, cut to order and delivered to your kitchen the same day.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#contact">Request a sample box
+          <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#microgreens">See the varieties</a>
+      </div>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><i></i>Scroll</div>
+  </section>
+
+  <!-- readout ------------------------------------------------------- -->
+  <div class="readout">
+    <div class="wrap readout-in">
+      <span class="readout-label">Typical grow-room conditions</span>
+      <span class="metric"><b data-metric="ec">1.82</b><span>EC mS/cm</span></span>
+      <span class="metric"><b data-metric="ph">5.9</b><span>pH</span></span>
+      <span class="metric"><b data-metric="air">21.4</b><span>Air &deg;C</span></span>
+      <span class="metric"><b data-metric="rh">68</b><span>RH %</span></span>
+      <span class="metric"><b data-metric="light">16</b><span>Light hrs</span></span>
     </div>
   </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-bar"></div>
-  </div>
-</section>
 
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-inner">
-    <span>Microgreens <span class="ticker-dot">·</span></span>
-    <span>Cherry Tomatoes <span class="ticker-dot">·</span></span>
-    <span>Batavia Lettuce <span class="ticker-dot">·</span></span>
-    <span>Oyster Mushrooms <span class="ticker-dot">·</span></span>
-    <span>Hydroponic Grown <span class="ticker-dot">·</span></span>
-    <span>Premium Quality <span class="ticker-dot">·</span></span>
-    <span>nabtfarms.com <span class="ticker-dot">·</span></span>
-    <span>Microgreens <span class="ticker-dot">·</span></span>
-    <span>Cherry Tomatoes <span class="ticker-dot">·</span></span>
-    <span>Batavia Lettuce <span class="ticker-dot">·</span></span>
-    <span>Oyster Mushrooms <span class="ticker-dot">·</span></span>
-    <span>Hydroponic Grown <span class="ticker-dot">·</span></span>
-    <span>Premium Quality <span class="ticker-dot">·</span></span>
-    <span>nabtfarms.com <span class="ticker-dot">·</span></span>
-  </div>
+  <!-- microgreens --------------------------------------------------- -->
+  <section class="band wrap" id="microgreens">
+    <div class="sec-head rv">
+      <p class="eyebrow">Crop 01 &middot; Microgreens</p>
+      <h2>Twelve varieties, <em>cut the morning they ship.</em></h2>
+      <p class="lead">Grown in trays under controlled light and nutrient dosing, so flavour and colour hold from harvest to plate. Order single varieties or a mix built around your menu.</p>
+    </div>
+
+    <div class="crop-grid rv d1">
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-oval"/></svg><h3>Sunflower</h3><p>Nutty, thick-stemmed, satisfying crunch.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-lobed"/></svg><h3>Radish</h3><p>Sharp and peppery with vivid stems.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-tendril"/></svg><h3>Pea Shoots</h3><p>Sweet, tender, with curling tendrils.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-spade"/></svg><h3>Broccoli</h3><p>Mild and earthy. The everyday workhorse.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-oval"/></svg><h3>Basil</h3><p>Intensely aromatic, cut small and fresh.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-round"/></svg><h3>Beet</h3><p>Sweet and earthy with deep crimson stems.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-lacy"/></svg><h3>Coriander</h3><p>Citrus-forward and unmistakably fresh.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-lobed"/></svg><h3>Mustard</h3><p>Warm, bold heat that builds slowly.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-lobed"/></svg><h3>Arugula</h3><p>Peppery and crisp. Cuts through richness.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-heart"/></svg><h3>Amaranth</h3><p>Mild flavour, magenta colour that holds.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-round"/></svg><h3>Cabbage</h3><p>Clean and crunchy. Neutral base note.</p></article>
+      <article class="crop"><svg class="crop-glyph" viewBox="0 0 48 48" aria-hidden="true"><use href="#lf-grass"/></svg><h3>Wheatgrass</h3><p>Grown for juicing. Cut fresh to order.</p></article>
+    </div>
+
+    <p class="fineprint rv d2" style="margin-top:26px">Sold fresh-cut in single varieties or custom mixes. Pack sizes and minimum orders on request.</p>
+  </section>
+
+  <!-- lettuce ------------------------------------------------------- -->
+  <section class="lettuce wrap" id="lettuce">
+    <div class="lettuce-in">
+      <div class="sec-head rv">
+        <p class="eyebrow">Crop 02 &middot; Batavia lettuce</p>
+        <h2>Batavia lettuce, <em>crisp all year.</em></h2>
+      </div>
+      <p class="lead rv d1">Batavia sits between a crisphead and a loose leaf: dense enough to hold structure under dressing, open enough to keep a clean, sweet bite with none of the bitterness that comes from heat-stressed field lettuce.</p>
+      <p class="lead rv d1">Because we control light, nutrient and temperature, the heads that leave in August look like the heads that leave in February. That is the whole point of growing indoors, and it is what a kitchen actually buys.</p>
+      <div class="spec-row rv d2">
+        <span class="spec">Year-round supply</span>
+        <span class="spec">Zero pesticides</span>
+        <span class="spec">Same-day delivery</span>
+        <span class="spec">Whole heads</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- how we grow --------------------------------------------------- -->
+  <section class="band wrap" id="how">
+    <div class="sec-head rv">
+      <p class="eyebrow">How we grow</p>
+      <h2>Precision at <em>every stage.</em></h2>
+      <p class="lead">Four steps, every cycle, every crop. Nothing here is left to the weather.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><span class="step-no">I</span><h3>Water and nutrient testing</h3><p>Every cycle opens with analysis of the nutrient solution and growing media, so conditions are right from day one rather than corrected on day ten.</p></div>
+      <div class="step rv d1"><span class="step-no">II</span><h3>Controlled growing</h3><p>Hydroponic and sandponic systems with automated nutrient delivery and continuous monitoring &mdash; cleaner, faster and more consistent than soil.</p></div>
+      <div class="step rv d2"><span class="step-no">III</span><h3>Harvest and grading</h3><p>Hand-cut at peak maturity, then graded before anything leaves the farm. Every batch, every time.</p></div>
+      <div class="step rv d3"><span class="step-no">IV</span><h3>Cold chain delivery</h3><p>Temperature-controlled from farm gate to your door, same day across Cairo and greater Egypt.</p></div>
+    </div>
+  </section>
+
+  <!-- standards ----------------------------------------------------- -->
+  <section class="band wrap" id="standards">
+    <div class="sec-head rv">
+      <p class="eyebrow">Standards</p>
+      <h2>Growing with the planet, <em>not against it.</em></h2>
+    </div>
+    <div class="stds rv d1">
+      <div class="std"><h3>Zero pesticides</h3><p>Closed growing systems mean there is nothing to spray, and no chemical residue to wash off.</p></div>
+      <div class="std"><h3>Water stewardship</h3><p>Closed-loop drip irrigation recirculates the nutrient solution instead of losing it to the ground.</p></div>
+      <div class="std"><h3>Solar powered</h3><p>On-site solar carries the growing rooms and cold storage through the day.</p></div>
+      <div class="std"><h3>Precision monitoring</h3><p>Sensors track EC, pH, temperature and humidity continuously, so problems surface before they reach a tray.</p></div>
+      <div class="std"><h3>Graded every batch</h3><p>Nothing ships that we would not put on our own pass. Rejected trays go to compost, not to customers.</p></div>
+    </div>
+  </section>
+
+  <!-- contact ------------------------------------------------------- -->
+  <section class="band wrap" id="contact">
+    <div class="contact-grid">
+      <div class="rv">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Ready to grow <em>together?</em></h2>
+        <p class="lead" style="margin-top:1.4rem">Tell us what you cook, or what you stock. We will send pricing, pack formats and a sample box.</p>
+        <ul class="channels">
+          <li><dfn>Email</dfn><a href="mailto:nabtfarms@gmail.com">nabtfarms@gmail.com</a></li>
+          <li><dfn>WhatsApp</dfn><p>Available on request</p></li>
+          <li><dfn>Serving</dfn><p>Cairo and greater Egypt</p></li>
+        </ul>
+      </div>
+
+      <form class="form rv d1" id="inquiry" data-endpoint="https://formspree.io/f/mwvjaddv" novalidate>
+        <div class="duo">
+          <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-biz">Business</label><input id="f-biz" name="business" type="text" autocomplete="organization"></div>
+        </div>
+        <div class="duo">
+          <div class="field"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="f-tel">Phone</label><input id="f-tel" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field">
+          <label for="f-type">What do you need</label>
+          <select id="f-type" name="inquiry_type">
+            <option>Restaurant or hotel supply</option>
+            <option>Supermarket or retail</option>
+            <option>Wholesale order</option>
+            <option>Sample box</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="message" rows="4" placeholder="Varieties, volumes, delivery days"></textarea></div>
+        <button class="btn btn-solid" type="submit" id="send">Send inquiry
+          <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+        <p class="form-note" id="note" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <p class="fineprint"><span lang="ar" style="font-family:var(--ff-ar)">نبت</span> &nbsp;Nabt Farms &middot; &copy; <span id="yr">2026</span> nabtfarms.com</p>
+      <ul class="foot-links">
+        <li><a href="#microgreens">Microgreens</a></li>
+        <li><a href="#lettuce">Lettuce</a></li>
+        <li><a href="#how">How we grow</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
 </div>
 
-<!-- STATS -->
-<div class="stats-bar reveal">
-  <div class="stat"><span class="stat-n" data-target="4">0</span><span class="stat-l">Core Product Lines</span></div>
-  <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Sustainably Grown</span></div>
-  <div class="stat"><span class="stat-n">365</span><span class="stat-l">Days Fresh Supply</span></div>
-  <div class="stat"><span class="stat-n">Egypt</span><span class="stat-l">All Over Egypt</span></div>
-</div>
-
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="products-header reveal">
-    <div>
-      <span class="eyebrow">What We Grow</span>
-      <h2 class="h2">Fresh from the farm,<br><em>all year round.</em></h2>
-    </div>
-    <a href="mailto:nabtfarms@gmail.com" class="btn btn-primary">Request Catalogue</a>
-  </div>
-
-  <!-- MICROGREENS -->
-  <div class="cat-label reveal"><span class="cat-tag">Category 01</span><span class="cat-name">Microgreens</span></div>
-
-  <!-- MICROGREENS STRIP -->
-  <p class="micro-intro reveal">Grown in precision-controlled environments. Available fresh-cut daily in single varieties or custom mixes.</p>
-  <div class="micro-strip">
-    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Sunflower</span><span class="micro-sub">Nutty · Crunchy</span></div>
-    <div class="micro-cell"><span class="micro-icon">🔴</span><span class="micro-name">Radish</span><span class="micro-sub">Spicy · Vibrant</span></div>
-    <div class="micro-cell"><span class="micro-icon">🫛</span><span class="micro-name">Pea Shoots</span><span class="micro-sub">Sweet · Tender</span></div>
-    <div class="micro-cell"><span class="micro-icon">🥦</span><span class="micro-name">Broccoli</span><span class="micro-sub">Earthy · Rich</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌿</span><span class="micro-name">Basil</span><span class="micro-sub">Aromatic · Fresh</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌾</span><span class="micro-name">Beet</span><span class="micro-sub">Sweet · Colourful</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Coriander</span><span class="micro-sub">Citrusy · Fresh</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Mustard</span><span class="micro-sub">Warm · Bold</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Arugula</span><span class="micro-sub">Peppery · Crisp</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Amaranth</span><span class="micro-sub">Mild · Colourful</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Cabbage</span><span class="micro-sub">Crunchy · Clean</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌾</span><span class="micro-name">Wheatgrass</span><span class="micro-sub">Energising · Rich</span></div>
-  </div>
-
-  <!-- LEAFY GREENS -->
-  <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 02</span><span class="cat-name">Leafy Greens</span></div>
-  <p class="micro-intro reveal">Crisp, nutrient-dense leaves grown hydroponically and harvested fresh.</p>
-  <div class="micro-strip" style="grid-template-columns:repeat(3,1fr)">
-    <div class="micro-cell"><span class="micro-icon">🥬</span><span class="micro-name">Batavia Lettuce</span><span class="micro-sub">Crisp · Year-Round</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌿</span><span class="micro-name">Baby Spinach</span><span class="micro-sub">Nutrient-Dense</span></div>
-    <div class="micro-cell"><span class="micro-icon">🌱</span><span class="micro-name">Arugula</span><span class="micro-sub">Peppery · Crisp</span></div>
-  </div>
-
-  <!-- CHERRY TOMATOES -->
-  <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 03</span><span class="cat-name">Cherry Tomatoes</span></div>
-  <p class="micro-intro reveal">Vine-ripened, hydroponic-grown, harvested to order for peak sweetness.</p>
-  <div class="micro-strip" style="grid-template-columns:repeat(2,1fr)">
-    <div class="micro-cell"><span class="micro-icon">🍅</span><span class="micro-name">Red Cherry Tomatoes</span><span class="micro-sub">Vine-Ripened · Year-Round</span></div>
-    <div class="micro-cell"><span class="micro-icon">🟠</span><span class="micro-name">Orange Cherry Tomatoes</span><span class="micro-sub">Sweeter · Low Acidity</span></div>
-  </div>
-
-  <!-- CUCUMBERS -->
-  <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 04</span><span class="cat-name">Cucumbers</span></div>
-  <p class="micro-intro reveal">Seedless and full-size, grown for clean flavour without bitterness.</p>
-  <div class="micro-strip" style="grid-template-columns:repeat(2,1fr)">
-    <div class="micro-cell"><span class="micro-icon">🥒</span><span class="micro-name">Mini Cucumbers</span><span class="micro-sub">Seedless · Snack Size</span></div>
-    <div class="micro-cell"><span class="micro-icon">🥒</span><span class="micro-name">English Cucumbers</span><span class="micro-sub">Full Size · Hotel Grade</span></div>
-  </div>
-
-  <!-- MUSHROOMS -->
-  <div class="cat-label reveal" style="margin-top:72px"><span class="cat-tag">Category 05</span><span class="cat-name">Mushrooms</span></div>
-  <p class="micro-intro reveal">Cultivated in controlled environments for consistent quality.</p>
-  <div class="micro-strip" style="grid-template-columns:repeat(2,1fr)">
-    <div class="micro-cell"><span class="micro-icon">🍄</span><span class="micro-name">Oyster Mushrooms</span><span class="micro-sub">Fresh · Premium</span></div>
-    <div class="micro-cell"><span class="micro-icon">🍄</span><span class="micro-name">Button Mushrooms</span><span class="micro-sub">Classic · Versatile</span></div>
-  </div>
-
-</section>
-
-
-<!-- WHY NABT STRIP -->
-<div class="why-strip">
-  <div class="why-item">
-    <div class="why-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="2"/></svg>
-    </div>
-    <div class="why-title">Zero Pesticides</div>
-    <div class="why-body">Clean growing systems mean no chemical residues — ever.</div>
-  </div>
-  <div class="why-item">
-    <div class="why-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    </div>
-    <div class="why-title">Year-Round Supply</div>
-    <div class="why-body">Controlled environments mean consistent stock every week, every season.</div>
-  </div>
-  <div class="why-item">
-    <div class="why-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    </div>
-    <div class="why-title">Same-Day Delivery</div>
-    <div class="why-body">Harvested fresh and delivered to your kitchen or store the same day.</div>
-  </div>
-  <div class="why-item">
-    <div class="why-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    </div>
-    <div class="why-title">Hydroponic & Sandponic</div>
-    <div class="why-body">Modern growing systems producing superior flavour, texture, and nutrition.</div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="about" id="about" style="display:block;max-width:900px;margin:0 auto;">
-  <div class="reveal" style="padding-bottom: 28px;">
-    <span class="eyebrow">Our Story</span>
-    <h2 class="h2">Rooted in the land,<br>grown for the <em>future.</em></h2>
-    <p class="body-txt" style="max-width:680px">Nabt Farms was built on one conviction: that Egyptian soil, nurtured with precision and respect, produces some of the finest food in the world. Using hydroponic and sandponic growing systems, we produce year-round with zero pesticides and precise nutrient control — delivering consistently premium quality to restaurants, retailers, and supermarkets across Egypt.</p>
-    <div class="values" style="max-width:680px;grid-template-columns:repeat(4,1fr);margin-top:44px">
-      <div class="val">
-        <div class="val-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg></div>
-        <div><div class="val-title">Water Stewardship</div><div class="val-body">Smart drip irrigation cuts water use by up to 70%.</div></div>
-      </div>
-      <div class="val">
-        <div class="val-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg></div>
-        <div><div class="val-title">Solar Powered</div><div class="val-body">Renewable energy powers our entire greenhouse complex.</div></div>
-      </div>
-      <div class="val">
-        <div class="val-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <div><div class="val-title">Precision Farming</div><div class="val-body">AI-assisted monitoring and real-time sensor data.</div></div>
-      </div>
-      <div class="val">
-        <div class="val-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg></div>
-        <div><div class="val-title">Quality Certified</div><div class="val-body">GlobalGAP certified. Tested and graded every harvest.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SUSTAINABILITY -->
-<section class="sust" id="sustainability">
-  <div class="reveal">
-    <span class="eyebrow">Our Commitment</span>
-    <h2 class="h2" style="max-width:520px">Growing with the planet,<br>not <em>against it.</em></h2>
-  </div>
-  <div class="pillars reveal">
-    <div class="pillar">
-      <div class="pillar-ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg></div>
-      <div class="pillar-title">Water</div>
-      <p class="pillar-body">Closed-loop drip irrigation. Every drop tracked and recirculated.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg></div>
-      <div class="pillar-title">Solar</div>
-      <p class="pillar-body">On-site solar panels power greenhouses and cold storage year-round.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
-      <div class="pillar-title">Community</div>
-      <p class="pillar-body">We invest in local employment and agricultural training.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-      <div class="pillar-title">Innovation</div>
-      <p class="pillar-body">Smart sensors and data analytics maximise yield, minimise waste.</p>
-    </div>
-    <div class="pillar">
-      <div class="pillar-ic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
-      <div class="pillar-title">Future</div>
-      <p class="pillar-body">Carbon-neutral operations by 2030. Measurable and publicly reported.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section class="process" id="process">
-  <div class="reveal" style="text-align:center;max-width:500px;margin:0 auto">
-    <span class="eyebrow">How We Work</span>
-    <h2 class="h2">Precision at<br><em>every stage.</em></h2>
-  </div>
-  <div class="steps reveal">
-    <div class="step">
-      <div class="step-n">I</div>
-      <div class="step-title">Soil & Water Testing</div>
-      <p class="step-body">Every growth cycle begins with rigorous analysis of growing media and nutrient solution to ensure peak conditions from day one.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">II</div>
-      <div class="step-title">Hydroponic & Sandponic Systems</div>
-      <p class="step-body">Our hydroponic and sandponic growing systems use automated nutrient delivery and real-time crop monitoring — producing cleaner, faster, and more consistent yields than traditional soil farming.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">III</div>
-      <div class="step-title">Harvest & Grading</div>
-      <p class="step-body">Produce is hand-selected at peak maturity, then graded and tested before leaving the farm — every batch, every time.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">IV</div>
-      <div class="step-title">Cold Chain Delivery</div>
-      <p class="step-body">Temperature-controlled logistics from farm gate to your facility — same-day delivery across Cairo and greater Egypt.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <span class="eyebrow">Contact</span>
-  <h2 class="h2 reveal">Ready to grow<br><em>together?</em></h2>
-  <p class="contact-sub reveal">Wholesale · Restaurant Supply · Fresh Orders</p>
-  <div class="channels reveal">
-    <div class="channel">
-      <span class="ch-icon">🌐</span>
-      <span class="ch-lbl">Website</span>
-      <span class="ch-val">nabtfarms.com</span>
-    </div>
-    <div class="channel">
-      <span class="ch-icon">✉</span>
-      <span class="ch-lbl">Email</span>
-      <span class="ch-val">nabtfarms@gmail.com</span>
-    </div>
-    <div class="channel">
-      <span class="ch-icon">💬</span>
-      <span class="ch-lbl">WhatsApp</span>
-      <span class="ch-val">Available on request</span>
-    </div>
-  </div>
-  <form class="cform reveal" action="https://formspree.io/f/mwvjaddv" method="POST">
-    <div class="form-row">
-      <input class="fi" type="text" name="name" placeholder="Your Name" required>
-      <input class="fi" type="email" name="email" placeholder="Email Address" required>
-    </div>
-    <input class="fi" type="text" name="company" placeholder="Company / Organisation">
-    <select class="fi" name="inquiry_type" style="cursor:pointer;appearance:none;color:rgba(163,177,138,0.35);" onchange="this.style.color='var(--cream)'" required>
-      <option value="" style="background:#2E3B2E;color:#A3B18A">Inquiry Type — Select</option>
-      <option style="background:#2E3B2E;color:#F5F2E9">Wholesale Order</option>
-      <option style="background:#2E3B2E;color:#F5F2E9">Restaurant / Hotel Supply</option>
-      <option style="background:#2E3B2E;color:#F5F2E9">Supermarket Partnership</option>
-      <option style="background:#2E3B2E;color:#F5F2E9">Product Information</option>
-      <option style="background:#2E3B2E;color:#F5F2E9">General Inquiry</option>
-    </select>
-    <textarea class="fi fi-area" name="message" placeholder="Tell us what you're looking for…"></textarea>
-    <button class="btn btn-primary" type="submit" style="width:100%;padding:17px">Send Inquiry</button>
-  </form>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="foot-logo">
-    <span class="foot-ar">نبت</span>
-    <span class="foot-en">Nabt Farms · مزارع نبت</span>
-  </div>
-  <ul class="foot-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#sustainability">Sustainability</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <span class="foot-domain">© 2025 · nabtfarms.com</span>
-</footer>
-
-<script>
-  // Sticky nav
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
-
-  // Scroll reveal
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // Counter animation
-  function animCount(el, target, suffix='') {
-    let start = null;
-    const dur = 2000;
-    const step = ts => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / dur, 1);
-      const e = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.floor(e * target) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }
-  const statsObs = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      document.querySelectorAll('.stat-n[data-target]').forEach(el => {
-        animCount(el, parseInt(el.dataset.target), el.dataset.target == '200' ? '+' : '+');
-      });
-      statsObs.disconnect();
-    }
-  }, { threshold: 0.5 });
-  const statsEl = document.querySelector('.stats-bar');
-  if (statsEl) statsObs.observe(statsEl);
-
-  // Form submitted to Formspree directly
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="scene.js" defer></script>
 </body>
 </html>
