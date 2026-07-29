@@ -95,7 +95,7 @@
       var endpoint = form.getAttribute("data-endpoint") || "";
       if (endpoint.indexOf("YOUR_FORM_ID") !== -1) {
         note.className = "form-note bad";
-        note.textContent = "Form endpoint not set yet. Email nabtfarms@gmail.com in the meantime.";
+        note.textContent = "Form endpoint not set yet. Email contact@nabtfarms.com in the meantime.";
         return;
       }
 
@@ -114,7 +114,7 @@
         note.textContent = "Sent. We reply within one working day.";
       }).catch(function () {
         note.className = "form-note bad";
-        note.textContent = "That did not send. Email nabtfarms@gmail.com and we will pick it up.";
+        note.textContent = "That did not send. Email contact@nabtfarms.com and we will pick it up.";
       }).then(function () {
         send.disabled = false;
       });
