@@ -372,7 +372,7 @@
       uniforms: {
         uTime: { value: 0 },
         uFade: { value: 0 },
-        uNear: { value: 1.6 },
+        uNear: { value: 2.1 },
         uFar: { value: small ? 7.5 : 10.5 },
         uBg: { value: c3(COL.bg) },
         uDeep: { value: c3(COL.deep) },
@@ -391,14 +391,25 @@
     var pv = new THREE.Vector3();
     var sv = new THREE.Vector3();
 
+    /* keep a clear radius around the opening camera position, otherwise the
+       nearest plants fill the lens and the field reads as abstract shapes */
+    var CAM_X = 0, CAM_Z = 2.45, CLEAR = 1.9;
+
     for (var i = 0; i < COUNT; i++) {
-      /* denser near the camera, thinning out toward the fog line */
-      var r = RADIUS * Math.sqrt(Math.random());
-      var a = Math.random() * Math.PI * 2;
-      pv.set(Math.cos(a) * r, -0.02 - Math.random() * 0.03, Math.sin(a) * r - 0.6);
+      var px = 0, pz = 0, guard = 0;
+      do {
+        var r = RADIUS * Math.sqrt(Math.random());
+        var a = Math.random() * Math.PI * 2;
+        px = Math.cos(a) * r;
+        pz = Math.sin(a) * r - 1.4;
+        guard++;
+      } while (guard < 12 &&
+        Math.sqrt((px - CAM_X) * (px - CAM_X) + (pz - CAM_Z) * (pz - CAM_Z)) < CLEAR);
+
+      pv.set(px, -0.02 - Math.random() * 0.03, pz);
       eu.set(0, Math.random() * Math.PI * 2, (Math.random() - 0.5) * 0.34);
       qt.setFromEuler(eu);
-      var s = 0.72 + Math.random() * 0.62;
+      var s = 0.60 + Math.random() * 0.52;
       sv.set(s, s * (0.8 + Math.random() * 0.5), s);
       m4.compose(pv, qt, sv);
       field.setMatrixAt(i, m4);
@@ -465,7 +476,7 @@
     var heroEl = document.querySelector(".hero");
     var lettuceEl = document.getElementById("lettuce");
 
-    var CAM_A = v3([0, 0.30, 2.05]), LOOK_A = v3([0, 0.42, -1.30]);
+    var CAM_A = v3([0, 0.62, 2.45]), LOOK_A = v3([0, 0.34, -1.80]);
     var CAM_B = v3([0.45, 2.55, 4.10]), LOOK_B = v3([0, 0.18, -0.70]);
     var CAM_C = v3([0, 0, 0]), LOOK_C = v3([0, 0, 0]);
 
