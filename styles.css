@@ -177,13 +177,19 @@ p:last-child{margin-bottom:0}
   height:70px;
 }
 
-.brand{display:flex;align-items:center;gap:.7rem;flex:none}
-.brand-ar{
-  font-family:var(--ff-ar);
-  font-size:1.5rem;
-  line-height:1;
-  color:var(--chloro);
-  font-weight:600;
+.brand{display:flex;align-items:center;gap:.85rem;flex:none}
+.brand-mark{
+  width:40px;
+  height:40px;
+  display:block;
+  flex:none;
+}
+.foot-mark{
+  width:22px;
+  height:22px;
+  display:inline-block;
+  vertical-align:-.35em;
+  margin-right:.55rem;
 }
 .brand-en{
   font-size:.74rem;
